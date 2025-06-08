@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="static/styles.css">
+        <title>[File submission] fraud_detection</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+    </head>
+    <body>
+        <div class="content">
+            GrifflesCTF 2025, Fraud Detection<br>
+            <form enctype="multipart/form-data">
+                Submit your falsified tax records here: (csv file, max 5KB)
+                <br><br>
+                <input id="file" type="file" name="document" accept="text/csv" required>
+                <input type="submit" formmethod="post">
+            </form>
+
+            {% if box == 'error' %}
+                <br><div style="padding:max(10px,1%);background-color:#800;">{{ message }}</div>
+            {% elif box == 'ok' %}
+                <br><div style="padding:max(10px,1%);background-color:#080;">{{ message }}</div>
+            {% endif %}
+        </div>
+
+        <script>
+            f=document.getElementById("file");f.addEventListener("change",(_)=>{if(f.value!=null)f.setCustomValidity(f.files.item(0).size>500000?"File size is greater than 500KB.":"");})
+        </script>
+    </body>
+</html>

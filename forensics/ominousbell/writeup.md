@@ -1,0 +1,13 @@
+We receive two audio files, HELLO.wav and GOODBYE.wav. They both sound like static, with faint music in the background (no surprise given the music credits in the challenge description). As per any audio steganography challenge, we import the files into an analysis software like Audacity. Switching to Spectrograph view, we notice that the tips of the image seem to contain text that looks like a flag. Playing the two tracks together also removes the music audio, with only static remaining. From there, we have reason to suspect the concatenation of two original audio tracks that are processed into HELLO and GOODBYE, such that the original audio tracks can be recovered.
+
+In fact, summing HELLO and GOODBYE (which is the effect of playing them together in Audacity) to return one of two original audio tracks may imply that Mid/Side encoding is used (where HELLO is the Mid channel and GOODBYE the side channel). Those unfamiliar may wish to refer to [this website](https://www.justmastering.com/article-mid-side-stereo-explained-part1.php) (worth noting that the formula includes an additional division by 2, to allow for the sum and difference to eliminate R and L respectively) for an approachable explanation. But even if you're not familiar, that one original track can be recovered from summing may lead us to wonder if the difference between HELLO and GOODBYE would recover the other track. To attempt this, we invert one of the tracks, and mix the two tracks, and we are thus able to retrieve the original audio file.
+
+From there, this is a trivial watermarking challenge. The watermarks are scattered throughout the file, so it is useful to phase invert and subtract the original audio (if you are so resourceful...hehe) from the modified audio. This removes the original song and only leaves the watermark, making it easier to assemble the flag. Some artefacts exist, so deduce the flag to the best of your ability.
+
+Relevant files such as Audacity project files may be found [here](https://drive.google.com/drive/folders/1zTSMa_J7mStQ_jnRKamZpcNvlKIr3Fp2?usp=sharing)
+
+> Flag: `grifflesCTF{nO_but_1_hear_om1nous_buzz1ng}`
+
+Original YouTube audio sourced from: https://www.youtube.com/watch?v=ruJnpDMcoSw&pp=ygUMYmFrZSBubyBoYW5h (don't copyright strike me pls)
+TV Static Sound Effect by <a href="https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=6411">freesound_community</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=6411">Pixabay</a>
+

@@ -1,0 +1,20 @@
+name: fraud_detection
+attribution: by Wang Enrun Matthias and Arnav Sharma
+category: aids
+description: Fraud Detection in Business Transactions :O View the challenge [here](http://139.59.216.203:9999)!
+value: 500
+extra:
+  initial: 500
+  decay: 25
+  minimum: 100
+type: dynamic
+flags:
+- grifflesCTF{8A+GmF[!G1k5BYg(}
+files:
+- fraud_detection.ipynb
+- content/fraud.csv
+- content/fraud_classifier.pkl
+state: visible
+attempts: 50
+requirements:
+- HALLLOOOOO
